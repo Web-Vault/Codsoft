@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+          <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width,
+                              initial-scale=1.0">
+                    <title>Buy and sell old books online</title>
+
+                    <link rel="shortcut icon"
+                              href="images/favicon-ck.jpg"
+                              type="image/x-icon">
+
+                    <link rel="stylesheet" href="style.css">
+
+                    <link
+                              href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+                              rel="stylesheet"
+                              integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+                              crossorigin="anonymous">
+                    <script
+                              src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                              integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+                              crossorigin="anonymous"></script>
+
+                    <script
+                              src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                              integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                              crossorigin="anonymous"></script>
+                    <script
+                              src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+                              integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+                              crossorigin="anonymous"></script>
+
+
+          </head>
+
+          <body>
+                    <div class="header">
+                              <header class="d-flex align-items-center">
+                                        <div class="logo-img">
+                                                  <a href="{{URL::to('/')}}"><img
+                                                                      src="images/clankart-logo.png"
+                                                                      alt="clanKart"></a>
+                                        </div>
+
+                                        <div class="search">
+                                                  <input type="text"
+                                                            class="rounded-0
+                                                            form-control
+                                                            border-primary
+                                                            search-adverts"
+                                                            name="searchbar"
+                                                            id="searchbar">
+                                                  <button class="btn btn-primary
+                                                            border-primary
+                                                            d-none d-md-block
+                                                            border rounded-0
+                                                            search-btn">Search</button>
+                                        </div>
+                                        <!-- <div class="sellbtn">
+                                                            <a href="post-ad" class="p-3 border-1 rounded-2">Sell Old Books</a>
+                                                  </div> -->
+                                        <div class="options d-flex">
+
+                                                  <div class="account"
+                                                            id="account-drop-down">
+                                                            <svg height="25"
+                                                                      viewBox="0
+                                                                      0 32 32"
+                                                                      xmlns="http://www.w3.org/2000/svg">
+                                                                      <title></title>
+                                                                      <g
+                                                                                id="about">
+                                                                                <path
+                                                                                          d="M16,16A7,7,0,1,0,9,9,7,7,0,0,0,16,16ZM16,4a5,5,0,1,1-5,5A5,5,0,0,1,16,4Z"></path>
+                                                                                <path
+                                                                                          d="M17,18H15A11,11,0,0,0,4,29a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1A11,11,0,0,0,17,18ZM6.06,28A9,9,0,0,1,15,20h2a9,9,0,0,1,8.94,8Z"></path>
+                                                                      </g>
+                                                            </svg><br><span> My
+                                                                      account
+                                                            </span>
+                                                  </div>
+
+                                                  <div class="cart">
+                                                            <a class="link"
+                                                                      href="cart">
+                                                                      <svg
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0
+                                                                                0
+                                                                                24
+                                                                                24"
+                                                                                fill="none"
+                                                                                stroke="currentColor"
+                                                                                stroke-width="2"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                class="feather
+                                                                                feather-shopping-cart">
+                                                                                <circle
+                                                                                          cx="9"
+                                                                                          cy="21"
+                                                                                          r="1"></circle>
+                                                                                <circle
+                                                                                          cx="20"
+                                                                                          cy="21"
+                                                                                          r="1"></circle>
+                                                                                <path
+                                                                                          d="M1
+                                                                                          1h4l2.68
+                                                                                          13.39a2
+                                                                                          2
+                                                                                          0
+                                                                                          0
+                                                                                          0
+                                                                                          2
+                                                                                          1.61h9.72a2
+                                                                                          2
+                                                                                          0
+                                                                                          0
+                                                                                          0
+                                                                                          2-1.61L23
+                                                                                          6H6"></path>
+                                                                      </svg><br><span>Cart</span>
+                                                            </a>
+                                                  </div>
+                                        </div>
+
+
+                              </header>
+                    </div>
+                    <!-- @section('main-content') -->
+
+                    <div class="acc-options border" id="acc-options">
+                              <a class="link" href="profile">
+                                        <div class="profile"
+                                                  style="border-bottom: 1px
+                                                  solid #555; height: 80px;
+                                                  padding: 5px 0;">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/default-profile.png"
+                                                                      alt="profile"
+                                                                      style="border:
+                                                                      3px solid
+                                                                      #0083CA;border-radius:
+                                                                      50%;padding:
+                                                                      5px;">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <h3 class="fs-3">Welcome,
+                                                                      Aryan!</h3>
+                                                            <p class="opacity-75
+                                                                      fs-6">Visit
+                                                                      your
+                                                                      profile...</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <div class="profile">
+                                        <div class="profile-icon">
+                                                  <img
+                                                            src="images/books.png"
+                                                            alt="categories">
+                                        </div>
+                                        <a class="link"
+                                                  href="book">
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5"><a
+                                                                                class="link"
+                                                                                href="#">
+                                                                                Browse
+                                                                                Top
+                                                                                Categories
+                                                                      </a></p>
+                                                  </a>
+                                        </div>
+                              </div>
+
+                              <a class="link" href="ads">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/ads.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">My
+                                                                      Ads</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link" href="my-orders">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/orders.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">My
+                                                                      Orders</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link"
+                                        href="my-selling-orders">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/selling
+                                                                      orders.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">My
+                                                                      Selling
+                                                                      Orders</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link" href="chats">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/chats.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">My
+                                                                      Chats</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link" href="wishlist">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/wishlist.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">My
+                                                                      Wishlist</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link"
+                                        href="how-it-works">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/how
+                                                                      it
+                                                                      works.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">How
+                                                                      It Works</p>
+                                                  </div>
+                                        </div>
+                              </a>
+
+                              <a class="link" href="logout">
+                                        <div class="profile">
+                                                  <div class="profile-icon">
+                                                            <img
+                                                                      src="images/logout.png"
+                                                                      alt="categories">
+                                                  </div>
+                                                  <div class="user-name">
+                                                            <p class="opacity-75
+                                                                      fs-5">Logout</p>
+                                                  </div>
+                                        </div>
+                              </a>
+                    </div>
+
+                    <div class="hero">
+                              <div class="hero-part d-flex align-items-center
+                                        justify-content-center">
+                                        <div class="position-relative d-flex
+                                                  justify-content-center
+                                                  big-buysell-buttons">
+                                                  <div class="big-buy-button
+                                                            rounded border
+                                                            mx-2">
+                                                            <a href="/books"
+                                                                      class="d-flex
+                                                                      rounded
+                                                                      flex-column
+                                                                      justify-content-center
+                                                                      align-items-center
+                                                                      p-3">
+                                                                      <img
+                                                                                src="images/hand-books.svg"
+                                                                                alt="Buy
+                                                                                Used
+                                                                                Books"
+                                                                                class="icon">
+                                                                      <button
+                                                                                class="btn-text">Buy
+                                                                                Used
+                                                                                Books</button>
+                                                            </a>
+                                                  </div>
+
+                                                  <div class="big-or-button
+                                                            d-flex flex-center
+                                                            border rounded-5 p-2
+                                                            bg-light mx-2
+                                                            align-items-center
+                                                            justify-content-center
+                                                            text-dark">Or</div>
+                                                  <div class="big-sell-button
+                                                            rounded border
+                                                            mx-2">
+                                                            <a href="/post-ad"
+                                                                      class="d-flex
+                                                                      rounded
+                                                                      flex-column
+                                                                      justify-content-center
+                                                                      align-items-center
+                                                                      p-3"
+                                                                      title="Sell
+                                                                      your used
+                                                                      books
+                                                                      online at
+                                                                      great
+                                                                      prices">
+                                                                      <img
+                                                                                src="images/hand-money.svg"
+                                                                                alt="Sell
+                                                                                Old
+                                                                                Books"
+                                                                                class="icon">
+                                                                      <button
+                                                                                class="btn-text">Sell
+                                                                                Old
+                                                                                Books</button>
+                                                            </a>
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="hero-part">
+                                        <div id="carouselExampleDark"
+                                                  class="carousel carousel-dark
+                                                  slide">
+                                                  <div
+                                                            class="carousel-indicators">
+                                                            <button
+                                                                      type="button"
+                                                                      data-bs-target="#carouselExampleDark"
+                                                                      data-bs-slide-to="0"
+                                                                      class="active"
+                                                                      aria-current="true"
+                                                                      aria-label="Slide
+                                                                      1"></button>
+                                                            <button
+                                                                      type="button"
+                                                                      data-bs-target="#carouselExampleDark"
+                                                                      data-bs-slide-to="1"
+                                                                      aria-label="Slide
+                                                                      2"></button>
+                                                  </div>
+                                                  <div class="carousel-inner">
+                                                            <div
+                                                                      class="carousel-item
+                                                                      active"
+                                                                      data-bs-interval="1000">
+                                                                      <img
+                                                                                src="images/vector-illustration-retro-style-hand-giving-money-other-hand.png"
+                                                                                class="d-block
+                                                                                sld-img"
+                                                                                alt="...">
+                                                                      <div
+                                                                                class="carousel-caption
+                                                                                d-none
+                                                                                d-md-block">
+                                                                                <h3>Sell
+                                                                                          Old
+                                                                                          Books
+                                                                                          On
+                                                                                          ClanKart</h3>
+                                                                                <p>Well,
+                                                                                          you
+                                                                                          can
+                                                                                          sell
+                                                                                          your
+                                                                                          old
+                                                                                          used
+                                                                                          books
+                                                                                          very
+                                                                                          easily
+                                                                                          on
+                                                                                          Clankart
+                                                                                          for
+                                                                                          actual
+                                                                                          cash.</p>
+                                                                      </div>
+                                                            </div>
+                                                            <div
+                                                                      class="carousel-item"
+                                                                      data-bs-interval="2000">
+                                                                      <img
+                                                                                src="images/cash-delivery-concept.png"
+                                                                                class="d-block
+                                                                                sld-img"
+                                                                                alt="...">
+                                                                      <div
+                                                                                class="carousel-caption
+                                                                                d-none
+                                                                                d-md-block">
+                                                                                <h3>Purchase
+                                                                                          Old
+                                                                                          Books
+                                                                                          On
+                                                                                          ClanKart</h3>
+                                                                                <p>Well,
+                                                                                          you
+                                                                                          can
+                                                                                          buy
+                                                                                          second
+                                                                                          hand
+                                                                                          books
+                                                                                          very
+                                                                                          easily
+                                                                                          on
+                                                                                          Clankart.</p>
+                                                                      </div>
+                                                            </div>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+
+
+                    <div class="about py-5 mb-3" style="background-color:
+                              #deeafe;">
+                              <div class="container mb-5">
+                                        <p class="section-title mt-100 mx-auto
+                                                  my-5 text-center fs-1">How To
+                                                  Sell On <strong>Clankart™</strong></p>
+                                        <p class="section-subtitle w-100
+                                                  text-center mx-auto my-5
+                                                  fs-4">Well, you can sell your
+                                                  old used books very easily on
+                                                  Clankart for actual cash.
+                                                  Earning money by selling your
+                                                  old books is just 3 steps away
+                                                  from you :)</p>
+
+                                        <div class="card-container">
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/seller-adve.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Post
+                                                                                an
+                                                                                ad
+                                                                                for
+                                                                                selling
+                                                                                used
+                                                                                books</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">Post
+                                                                                an
+                                                                                ad
+                                                                                on
+                                                                                Clankart
+                                                                                describing
+                                                                                your
+                                                                                book
+                                                                                details
+                                                                                to
+                                                                                sell
+                                                                                your
+                                                                                old
+                                                                                books
+                                                                                online.</p>
+                                                            </div>
+                                                  </div>
+
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/set-price.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Set
+                                                                                the
+                                                                                selling
+                                                                                price
+                                                                                for
+                                                                                your
+                                                                                books</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">Set
+                                                                                the
+                                                                                price
+                                                                                for
+                                                                                your
+                                                                                books
+                                                                                at
+                                                                                which
+                                                                                you
+                                                                                want
+                                                                                to
+                                                                                sell
+                                                                                them.</p>
+                                                            </div>
+                                                  </div>
+
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/money-release.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Get
+                                                                                paid
+                                                                                into
+                                                                                your
+                                                                                UPI/Bank
+                                                                                account</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">You
+                                                                                will
+                                                                                get
+                                                                                money
+                                                                                into
+                                                                                your
+                                                                                account
+                                                                                once
+                                                                                you
+                                                                                receive
+                                                                                an
+                                                                                order
+                                                                                for
+                                                                                your
+                                                                                book.</p>
+                                                            </div>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+
+                    <div class="about">
+                              <div class="container mb-5">
+                                        <p class="section-title mt-100 mx-auto
+                                                  my-5 text-center fs-1">How To
+                                                  Purchase On <strong>Clankart™</strong></p>
+                                        <p class="section-subtitle w-100
+                                                  text-center mx-auto my-5
+                                                  fs-4">Well, you can buy second
+                                                  hand books very easily on
+                                                  Clankart.
+
+                                                  Saving some good amount of
+                                                  money by buying used
+                                                  (preloved) books is just 3
+                                                  steps away from you :)</p>
+                                        <div class="card-container">
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/search-item.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Select
+                                                                                the
+                                                                                used
+                                                                                books
+                                                                                you
+                                                                                want</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">Search
+                                                                                from
+                                                                                over
+                                                                                thousands
+                                                                                of
+                                                                                used
+                                                                                books
+                                                                                listed
+                                                                                on
+                                                                                Clankart.</p>
+                                                            </div>
+                                                  </div>
+
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/buy.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Place
+                                                                                the
+                                                                                order
+                                                                                by
+                                                                                making
+                                                                                payment
+                                                                                to
+                                                                                Clankart</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">Then
+                                                                                simply
+                                                                                place
+                                                                                the
+                                                                                order
+                                                                                by
+                                                                                clicking
+                                                                                on
+                                                                                'Buy
+                                                                                Now'
+                                                                                button.</p>
+                                                            </div>
+                                                  </div>
+
+                                                  <div class="card border-info
+                                                            mb-3">
+                                                            <div
+                                                                      class="card-header">
+                                                                      <img
+                                                                                class="w-50
+                                                                                mx-auto
+                                                                                d-block"
+                                                                                src="images/seller-ships.svg"
+                                                                                alt="">
+                                                                      <h3
+                                                                                class="card-title
+                                                                                text-center">Get
+                                                                                the
+                                                                                books
+                                                                                delivered
+                                                                                at
+                                                                                your
+                                                                                doorstep</h3>
+                                                            </div>
+                                                            <div
+                                                                      class="card-body">
+                                                                      <p
+                                                                                class="card-text
+                                                                                text-center">The
+                                                                                books
+                                                                                will
+                                                                                be
+                                                                                delivered
+                                                                                to
+                                                                                you
+                                                                                at
+                                                                                your
+                                                                                doorstep!</p>
+                                                            </div>
+                                                  </div>
+                                        </div>
+                              </div>
+                    </div>
+
+                    <!-- @endsection -->
+
+                    <footer>
+                              <div class="footer-upper-part ">
+                                        <div class="footer-info container">
+                                                  <h1>ClanKart community</h1>
+                                                  <p>We're not just another
+                                                            shopping website
+                                                            where you buy from
+                                                            professional sellers
+                                                            - we are a vibrant
+                                                            community of
+                                                            students, book
+                                                            lovers across India
+                                                            who deliver
+                                                            happiness to each
+                                                            other! </p>
+                                                  <div class="footer-img">
+                                                            <img
+                                                                      src="images/footer_image.png"
+                                                                      alt="">
+                                                  </div>
+                                        </div>
+                              </div>
+
+                              <div class="footer-links ">
+                                        <div class="redirectors container">
+                                                  <div class="part">
+                                                            <ul>
+                                                                      <li
+                                                                                class="first">About
+                                                                                Us</li>
+                                                                      <li>About
+                                                                                Us</li>
+                                                                      <li>Contact
+                                                                                Us</li>
+                                                                      <li>Leave
+                                                                                Us
+                                                                                Feedback</li>
+                                                                      <li>Blog</li>
+                                                            </ul>
+                                                  </div>
+                                                  <div class="part">
+                                                            <ul>
+                                                                      <li
+                                                                                class="first">Useful
+                                                                                links</li>
+                                                                      <li>How it
+                                                                                works
+                                                                                ?</li>
+                                                                      <li>Clankart
+                                                                                Teleport</li>
+                                                                      <li>Frequantly
+                                                                                asked
+                                                                                questions
+                                                                                (FAQs)</li>
+                                                                      <li>Chat
+                                                                                Guidelines</li>
+                                                                      <li>Term
+                                                                                Of
+                                                                                Use
+                                                                                /
+                                                                                Listing
+                                                                                Policy
+                                                                                /
+                                                                                Privacy
+                                                                                Policy</li>
+                                                            </ul>
+                                                  </div>
+                                                  <div class="part">
+                                                            <ul>
+                                                                      <li
+                                                                                class="first">Stay
+                                                                                connected</li>
+                                                            </ul>
+                                                            <span
+                                                                      class="social-icons">
+                                                                      <img
+                                                                                src="images/facebook.png"
+                                                                                alt="facebook">
+                                                                      <img
+                                                                                src="images/instagram.png"
+                                                                                alt="instagram">
+                                                                      <img
+                                                                                src="images/youtube.png"
+                                                                                alt="youtube">
+                                                                      <img
+                                                                                src="images/twitter.png"
+                                                                                alt="twitter">
+                                                            </span>
+                                                  </div>
+                                        </div>
+                                        <div class="concept container">
+                                                  <div class="concept-type
+                                                            Secure-Payment">
+                                                            <div
+                                                                      class="concept-icon">
+                                                                      <img
+                                                                                src="images/card.png"
+                                                                                alt="">
+                                                            </div>
+                                                            <div
+                                                                      class="concept-info">
+                                                                      <p>Secure
+                                                                                Payment</p>
+                                                                      <p
+                                                                                class="info">100%
+                                                                                Secure
+                                                                                Online
+                                                                                Transaction</p>
+                                                            </div>
+                                                  </div>
+                                                  <div class="concept-type
+                                                            Clankart-Trust">
+                                                            <div
+                                                                      class="concept-icon">
+                                                                      <img
+                                                                                src="images/certified.png"
+                                                                                alt="">
+                                                            </div>
+                                                            <div
+                                                                      class="concept-info">
+                                                                      <p>ClanKart
+                                                                                Trust</p>
+                                                                      <p
+                                                                                class="info">Money
+                                                                                stored
+                                                                                safely
+                                                                                &
+                                                                                is
+                                                                                transferred
+                                                                                to
+                                                                                <br>
+                                                                                the
+                                                                                seller
+                                                                                only
+                                                                                after
+                                                                                buyer
+                                                                                confirmation</p>
+                                                            </div>
+                                                  </div>
+                                                  <div class="concept-type
+                                                            Customer-Support">
+                                                            <div
+                                                                      class="concept-icon">
+                                                                      <img
+                                                                                src="images/support.png"
+                                                                                alt="">
+                                                            </div>
+                                                            <div
+                                                                      class="concept-info">
+                                                                      <p>Customer
+                                                                                Support</p>
+                                                                      <p
+                                                                                class="info">Friendly
+                                                                                customer
+                                                                                support</p>
+                                                            </div>
+                                                  </div>
+                                        </div>
+                                        <hr class="container">
+                                        <div class="footer-text container">
+                                                  <p>Clankart is a free platform
+                                                            where you can buy
+                                                            second hand books at
+                                                            very cheap prices.
+                                                            Well at Clankart,
+                                                            you can also sell
+                                                            used books online in
+                                                            India for actual
+                                                            cash. Buy used books
+                                                            online like college
+                                                            books, school books,
+                                                            reading books, much
+                                                            more near you.</p>
+                                        </div>
+                                        <hr class="container">
+                                        <div class="copyright container">
+                                                  <p class="copyriight-claim">Copyright
+                                                            © 2024, <strong>Clankart™</strong>
+                                                            All Rights Reserved</p>
+                                                  <span class="social-icons">
+                                                            <img
+                                                                      src="images/visa.png"
+                                                                      alt="visa">
+                                                            <img
+                                                                      src="images/mastercard.png"
+                                                                      alt="mastercard">
+                                                            <img
+                                                                      src="images/paytm.png"
+                                                                      alt="paytm">
+                                                            <img
+                                                                      src="images/paypal.png"
+                                                                      alt="paypal">
+                                                  </span>
+                                        </div>
+                              </div>
+                    </footer>
+
+          </body>
+
+
+          <script>
+          document.addEventListener("DOMContentLoaded", function() {
+                    var profileIcon = document.querySelector(".profile-icon");
+                    var accOptions = document.querySelector(".acc-options");
+
+                    profileIcon.addEventListener("click", function() {
+                              accOptions.classList.toggle("show");
+                    });
+          });
+
+          const clickButton = document.querySelector('#account-drop-down');
+          const dropDown = document.querySelector('#acc-options');
+
+          clickButton.addEventListener('click', function() {
+                    if (dropDown.style.display === 'none' || dropDown.style.display === '') {
+                              dropDown.style.display = 'block';
+                    } else {
+                              dropDown.style.display = 'none';
+                    }
+          });
+</script>
+</html>
